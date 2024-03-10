@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
+
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: Nunito;
+    margin: auto;
+    font-style: normal;
+    font-family: "Madimi One", sans-serif;
+    background-color: #f1faee;
+}
+
+h1{
+    font-size: 5vmax;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.content-info{
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px;
+}
+
+.months{
+    text-align: center;
+    margin:10px;    
+    font-size: 50px;
+    width: 150px;
+    height: 150px;
+    color:#ffff;
+    box-shadow: 0px 0px 0px 2px black;
+}
+
+.months-jan{
+    background-color: #40AAC4;
+}
+
+.months-feb{
+    background-color: #5C6DB3;
+}
+
+.months-mar{
+    background-color: #A86DAD;
+}
+
+.months-arp{
+    background-color: #CA73A0;
+}
+
+.months-may{
+    background-color: #E63B39;
+}
+
+.months-jun{
+    background-color: #EC6440;
+}
+
+.months-jul{
+    background-color: #F47D45;
+}
+
+.months-aug{
+    background-color: #E8CA4E;
+}
+
+.months-sep{
+    background-color: #A7BD3E;
+}
+
+.months-oct{
+    background-color: #6EBF4E;
+}
+
+.months-nov{
+    background-color: #54B9A6;
+}
+
+.months-dec{
+    background-color: #82C8DA;
+}
+

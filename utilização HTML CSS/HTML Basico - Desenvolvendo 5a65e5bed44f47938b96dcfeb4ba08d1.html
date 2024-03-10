@@ -1,0 +1,827 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>HTML Basico - Desenvolvendo</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="5a65e5be-d44f-4793-8b96-dcfeb4ba08d1" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/solid_blue.png" style="object-position:center 40%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🌐</span></div><h1 class="page-title">HTML Basico - Desenvolvendo</h1><p class="page-description"></p></header><div class="page-body"><h1 id="591ddae3-b138-4fc1-826d-d2331e1e7cd1" class="">O que é HTML?</h1><figure id="5358ce25-4ecc-4fa8-883b-e2ffd3355222"><a href="https://pt.wikipedia.org/wiki/HTML" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">HTML</div><div class="bookmark-description">HTML é uma linguagem de marcação utilizada na construção de páginas na Web. Documentos HTML podem ser interpretados por navegadores. A tecnologia é fruto da junção entre os padrões HyTime e SGML.</div></div><div class="bookmark-href"><img src="https://pt.wikipedia.org/static/apple-touch/wikipedia.png" class="icon bookmark-icon"/>https://pt.wikipedia.org/wiki/HTML</div></div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/HTML5.svg/1200px-HTML5.svg.png" class="bookmark-image"/></a></figure><blockquote id="754b6038-6450-403b-a1ee-863c77a39c47" class=""><a href="https://pt.wikipedia.org/wiki/HTML"><mark class="highlight-blue_background"><strong>HTML (abreviação para a expressão inglesa </strong></mark></a><a href="https://pt.wikipedia.org/wiki/HTML"><mark class="highlight-blue_background"><em><strong>HyperText Markup Language</strong></em></mark></a><a href="https://pt.wikipedia.org/wiki/HTML"><mark class="highlight-blue_background"><strong>, que significa: &quot;</strong></mark></a><a href="https://pt.wikipedia.org/wiki/HTML"><mark class="highlight-blue_background"><strong><em>Linguagem de Marcação de Hipertexto&quot;</em></strong></mark></a><a href="https://pt.wikipedia.org/wiki/HTML"><mark class="highlight-blue_background"><strong>) é uma linguagem de marcação utilizada na construção de páginas na Web. Documentos HTML podem ser interpretados por navegadores.</strong></mark></a></blockquote><h1 id="781faef1-cb87-438d-83ee-5b84a0ee1f79" class="">A utilização das tags HTML ficara comentado no código a baixo</h1><ul id="98267b7d-e834-4f47-a310-9cf311a75dd5" class="bulleted-list"><li style="list-style-type:disc">Foi utilizado comentário HTML para explicação: <mark class="highlight-red"><span style="border-bottom:0.05em solid"><strong>&lt;!--  --&gt;</strong></span></mark></li></ul><blockquote id="6c2320b5-1837-47d9-abbe-07d7f0610a03" class="">Vamos aprender conceitos básicos HTML com organização de hierarquia sobre tags na pagina.</blockquote><blockquote id="f8083a16-500e-4a4e-b394-d5a56def6f8a" class="">Essa a inicialização básica do HTML para começar criar elementos sobre a pagina Web.</blockquote><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="423d445f-b556-471e-bcf5-fe1b6ff1d84d" class="code"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;!-- 
+	DOCTYPE não é uma tag html mas uma informação
+	Para navegador espera um documento,
+	que fica sempre em cima da pagina. 
+--&gt;
+
+&lt;html lang=&quot;pt-br&quot;&gt; &lt;!-- -&gt; lang=&quot;pt-br&quot; --&gt;
+&lt;!--
+	Códigos de idioma ISO:
+	Você deve sempre incluir o atributo lang dentro da tag &lt;html&gt;, 
+	Para declarar o idioma da página Web. O objetivo é ajudar
+	Os mecanismos de pesquisa e navegadores:
+--&gt;
+
+&lt;head&gt; &lt;!-- head trabalha com configuração do site --&gt;
+
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;!--
+	Tag de auto fechado meta...
+	Utilizado para formatar em diferentes
+	Liguagens do idioma humano (Português, Inglês ,Coreano)
+--&gt;
+	
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;!--
+	Essa é uma tag configura a resposividade sobre o site
+	Podedo trabalhar com ajuste com componentes do site 
+	Em aparelho menores (celulares, tabletes)
+--&gt;
+	
+&lt;title&gt;eBook - Biologia&lt;/title&gt;
+
+&lt;!-- 
+	Titulo sobre o site mostrado em cima da pagina pricipal
+--&gt;
+
+&lt;link rel=&quot;icon&quot; href=&quot;./imgs/icons/exemploicon.png&quot;&gt; &lt;!-- Link de icones do site --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;./css/style.css&quot;&gt; &lt;!-- Link de css --&gt;
+
+
+&lt;!--
+	tag link que trabalha com ligação de arquivos do site icones e configuração de css
+--&gt;
+&lt;/head&gt; 
+
+&lt;body&gt;
+&lt;!--
+	Tag body para trabalhar com tags de visualização do site e
+	configuração comportamental.
+--&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h2 id="beb45a27-9eef-4906-b7f2-e1739a2fc247" class="">Vamos utilizar <mark class="highlight-red"><span style="border-bottom:0.05em solid"><strong>tags html</strong></span></mark> para criar componentes simples em nossa página Web.</h2><blockquote id="d6b4050a-707e-40ab-80ec-9fa824afeba3" class="">Para utilização do <mark class="highlight-blue"><strong>CSS</strong></mark> vamos criar um arquivo em nossa pasta…</blockquote><blockquote id="a4f54705-5468-4935-95a9-9ab1ab378d52" class="">Sobre o HTML vamos acessar o caminho onde ele foi criado</blockquote><blockquote id="8590595e-c6a1-41ba-9e2d-ddb79464bbd0" class="">1° foi criado uma pasta css com <span style="border-bottom:0.05em solid"><mark class="highlight-brown"><strong>css/</strong></mark></span>style.css</blockquote><blockquote id="091fc7fa-d049-4db9-a5c4-98d46b1240e5" class="">2°criamos um arquivo style.css em css<mark class="highlight-orange"><span style="border-bottom:0.05em solid"><strong>/style.css </strong></span></mark><mark class="highlight-default">- clicando no Enter temos nosso css criado</mark></blockquote><figure id="fb779c6c-c7a1-4d30-9016-b23628d05f28" class="image"><a href="HTML%20Basico%20-%20Desenvolvendo%205a65e5bed44f47938b96dcfeb4ba08d1/criacao-css.png"><img style="width:212px" src="HTML%20Basico%20-%20Desenvolvendo%205a65e5bed44f47938b96dcfeb4ba08d1/criacao-css.png"/></a></figure><blockquote id="bcb931ac-f670-4e9b-9da3-1dc75973e3f4" class="">O caminho do css para HTML fica aplicado na tag <mark class="highlight-yellow"><strong>link </strong></mark>em <strong><mark class="highlight-yellow">head </mark></strong>sobre <strong><mark class="highlight-yellow">href</mark></strong></blockquote><blockquote id="258de566-8143-4028-a416-954d07581ee6" class="">Para saber qual seria o caminho usaremos onde foi criado nosso arquivo como base.</blockquote><blockquote id="0a64135e-6afe-41e4-8f8d-07a6a6b66070" class="">&gt;&gt; href=”./” → para pegar o caminho fora do index onde fica a pasta <mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>css </strong></span></mark>e <mark class="highlight-brown"><span style="border-bottom:0.05em solid"><strong>utilização.html</strong></span></mark></blockquote><blockquote id="c1f91bda-0b97-4012-870b-54dc073822fa" class="">&gt;&gt; href=”./css” → para pegar o caminho da pasta <span style="border-bottom:0.05em solid"><mark class="highlight-teal"><strong>css</strong></mark></span></blockquote><blockquote id="373e03d7-81fb-40c3-b1b7-205a3b5fa716" class="">&gt;&gt; href=”./css/style.css” → para pegar o caminho dentro da pasta <mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>css </strong></span></mark>acessando o arquivo <mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>style.css</strong></span></mark></blockquote><blockquote id="2ed86503-cca5-4ca9-9aa1-fff8bf0083f3" class="">No final ficaria assim nosso caminho dentro da tag <mark class="highlight-red"><strong>head</strong></mark></blockquote><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="982abaa5-19f7-466b-9bd1-c825627c5ef2" class="code"><code class="language-HTML">&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Lista de Produtos&lt;/title&gt;
+    &lt;link rel=&quot;icon&quot; href=&quot;./imgs/icons/ebook.png&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;./css/style.css&quot;&gt; &lt;!-- Link acesso ao css --&gt;
+&lt;/head&gt;</code></pre><blockquote id="6221db67-2190-430f-a280-c933413ed932" class="">Sobre html podemos marca onde queremos estilizar nosso componente HTML</blockquote><blockquote id="dbe144c2-c1b4-4f54-b4e2-f7c4c6c0a0b1" class="">Usando ID E CLASS - Suas diferenças </blockquote><div id="aefb4e0d-6212-4c87-b81e-4449199a7024" class="column-list"><div id="4f9dd6c5-4a23-4661-9f08-01dcb437bd79" style="width:50%" class="column"><p id="753ebc60-0ebc-4ca4-a9f5-260a20325d17" class=""><mark class="highlight-teal"><strong>ID </strong></mark>- Marcado privado que só usado somente em uma tag.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="84ba7439-4077-4300-b11a-e4f68b2efa24" class="code"><code class="language-HTML">	&lt;h1 id=&quot;ponteiro-unico&quot;&gt;Eai&lt;/h1&gt;
+	&lt;h1 class=&quot;ponteiro-global&quot;&gt;Boas&lt;/h1&gt;</code></pre></div><div id="b0a1e68e-4d0d-40ef-9fa8-1d15b80c6ed6" style="width:49.99999999999999%" class="column"><p id="d2064de2-d48b-4013-aed1-77e97c687a1d" class=""><mark class="highlight-yellow"><strong>CLASS </strong></mark>- Marcado global do css que pode ser reutilizado varias vezes nas tag.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="c3ddb06c-9fe2-405c-a760-3a126d658c6c" class="code"><code class="language-CSS">/* No css é usando # id */
+#ponteiro-unico{
+	/*sua customização*/
+}
+
+/* No css class é usado class */
+.ponteiro-global{
+	/*sua customização*/
+}</code></pre></div></div><blockquote id="9f477568-655d-40ea-993a-4942fa5ea599" class="">Agora que temos o css eremos criar nosso tabela de produtos…</blockquote><blockquote id="48c37822-c717-40e7-b2b4-53dce6dd4283" class="">Antes de iniciar vou passar com utilização das propriedades do HTML e Elementos de unidade de medida usando em uma tabela de lista de compras…</blockquote><blockquote id="b40c055b-8b92-48f7-ae98-de96a0b79f5b" class="">Nosso CSS:</blockquote><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="7b9f1141-e3c8-49f0-842a-cbd674b9adbb" class="code"><code class="language-CSS">/*
+	Unidade de medida CSS (px, em, rem, vw, vh, vmax, vmin e %)
+
+	&gt;&gt;Unidadede medida absoluta:
+	
+	cm	centimeters
+	mm	millimeters
+	in	inches (1in = 96px = 2.54cm)
+	px *	pixels (1px = 1/96th of 1in)
+	pt	points (1pt = 1/72 of 1in)
+	pc	picas (1pc = 12 pt)
+	
+	&gt;&gt; Unidade de medida relativa a janela do usuario:
+	
+	em - Relativo ao tamanho da fonte do elemento (2em significa 2 vezes o tamanho da fonte atual)
+	ex - Relativo à altura x da fonte atual (raramente usado)
+	ch - Em relação à largura do &quot;0&quot; (zero)
+	rem - Relativo ao tamanho da fonte do elemento raiz
+	vw - Relativo a 1% da largura da janela de visualização*
+	vh - Relativo a 1% da altura da janela de visualização*
+	vmin - Relativo a 1% da dimensão menor da janela de visualização*
+	vmax - Relativo a 1% da dimensão maior da janela de visualização*
+	% Em relação ao elemento pai
+*/
+
+.info-list{
+	background-color:rgb(255, 221, 52);
+}
+
+.table-list{
+	text-align: center;
+  width: 100%;
+ }
+
+table, th{
+	margin: auto;
+	padding: 10px;
+	border: 1px solid black;
+	}</code></pre><blockquote id="4fa07654-dd47-42af-9731-c688fd4d412d" class="">Nosso HTML:</blockquote><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="8406523c-ba14-4d9b-8d95-b68e9cb529a8" class="code"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;pt-br&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Lista de Produtos&lt;/title&gt;
+    &lt;link rel=&quot;icon&quot; href=&quot;./imgs/icons/ebook.png&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;./css/style.css&quot;&gt; &lt;!-- Link acesso ao css --&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+    
+    &lt;section class=&quot;table-list&quot;&gt; &lt;!-- Essa é uma tag de seção para nosso site --&gt; 
+        &lt;h2&gt;Lista de Produtos Supermercado&lt;/h2&gt; &lt;!-- Tag de titulo --&gt; 
+        &lt;table&gt; &lt;!-- Tag de tabela e tr coluna, th linhas --&gt;
+            &lt;tr class=&quot;info-list&quot;&gt;
+                &lt;th&gt;Produto&lt;/th&gt;
+                &lt;th&gt;Valor&lt;/th&gt;
+                &lt;th&gt;peso&lt;/th&gt;
+                &lt;th&gt;Validade&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Molho de Tomate&lt;/th&gt;
+                &lt;th&gt;R$: 1,25&lt;/th&gt;
+                &lt;th&gt;300g&lt;/th&gt;
+                &lt;th&gt;23/05/2025&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Fermento Royal&lt;/th&gt;
+                &lt;th&gt;R$: 1,25&lt;/th&gt;
+                &lt;th&gt;100g&lt;/th&gt;
+                &lt;th&gt;23/05/2024&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Alho Granel Saco&lt;/th&gt;
+                &lt;th&gt;R$: 2,25&lt;/th&gt;
+                &lt;th&gt;100g&lt;/th&gt;
+                &lt;th&gt;12/04/2024&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/section&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><blockquote id="0bf2d7b0-c00b-4cd7-8f17-98efa689f3ca" class="">O resultado dessa tabela ficaria dessa forma:</blockquote><figure id="13ea8bb1-c8e5-4f8f-b0ec-5ec1885bf3e7" class="image"><a href="HTML%20Basico%20-%20Desenvolvendo%205a65e5bed44f47938b96dcfeb4ba08d1/lista_compras.png"><img style="width:1360px" src="HTML%20Basico%20-%20Desenvolvendo%205a65e5bed44f47938b96dcfeb4ba08d1/lista_compras.png"/></a></figure><p id="3ce8ec4d-78fe-44be-82b7-d739a0825ee4" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

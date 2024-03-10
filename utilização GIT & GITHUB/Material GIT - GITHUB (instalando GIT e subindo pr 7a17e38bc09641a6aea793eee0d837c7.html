@@ -1,0 +1,687 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Material GIT - GITHUB (instalando GIT e subindo projeto no GitHub com hospedagem do site)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="7a17e38b-c096-41a6-aea7-93eee0d837c7" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/gradients_8.png" style="object-position:center 70%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🌐</span></div><h1 class="page-title">Material GIT - GITHUB (instalando GIT e subindo projeto no GitHub com hospedagem do site)</h1><p class="page-description"></p></header><div class="page-body"><h1 id="4a9b99e7-a369-45ab-bb7e-7d2f552588f9" class="">Antes temos que instalar nosso Git e configura-lo para utilização do GitHub.</h1><h2 id="4aa50332-3c28-4839-8f3b-f476a450753e" class=""><mark class="highlight-red"><strong>INSTALAÇÃO GIT:</strong></mark></h2><blockquote id="5752588f-e16e-496c-a410-489ec6c9a693" class="">Nesse site podemos baixar o <mark class="highlight-red"><strong>GIT</strong></mark> e fazer a instalação</blockquote><figure id="2834606f-eb4e-44ff-8d20-0ca68ca5f2fd"><a href="https://git-scm.com/downloads" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Git - Downloads</div><div class="bookmark-description">The entire Pro Git book written
+  by Scott Chacon and Ben Straub is available to read online for free.
+  Dead tree versions are available on Amazon.com.</div></div><div class="bookmark-href"><img src="https://git-scm.com/favicon.ico" class="icon bookmark-icon"/>https://git-scm.com/downloads</div></div></a></figure><blockquote id="2dd87727-7aae-474b-8a99-73a604aa66d9" class="">Acessando o site acima <mark class="highlight-yellow"><strong>Git - Download</strong></mark> podemos escolher o sistema que utilizamos 32 ou 64 bits e executando a instalação…</blockquote><figure id="7a69b78e-f3ed-4851-b3d7-6485fc227873" class="image"><a href="Material%20GIT%20-%20GITHUB%20(instalando%20GIT%20e%20subindo%20pr%207a17e38bc09641a6aea793eee0d837c7/git_download.png"><img style="width:1919px" src="Material%20GIT%20-%20GITHUB%20(instalando%20GIT%20e%20subindo%20pr%207a17e38bc09641a6aea793eee0d837c7/git_download.png"/></a></figure><blockquote id="c462f832-460c-49ad-9dfd-bf656019005e" class="">Aparecerá o formato que deseja instalar, usaremos <mark class="highlight-blue"><strong>Setup </strong></mark>para instalação mais prático…</blockquote><figure id="14e1b068-e4b3-4c43-9571-0ead2d08e6ef" class="image"><a href="Material%20GIT%20-%20GITHUB%20(instalando%20GIT%20e%20subindo%20pr%207a17e38bc09641a6aea793eee0d837c7/formato_sistemaGit.png"><img style="width:1919px" src="Material%20GIT%20-%20GITHUB%20(instalando%20GIT%20e%20subindo%20pr%207a17e38bc09641a6aea793eee0d837c7/formato_sistemaGit.png"/></a></figure><blockquote id="ec7707ac-a271-4a73-a764-0f25d5904b39" class="">Vamos avançar com a instalação prosseguindo com <mark class="highlight-pink"><strong>NEXT</strong></mark> e finalizando a instalação…</blockquote><blockquote id="914a05c7-eb53-43e6-a7be-211d873c852e" class=""><mark class="highlight-brown"><strong>ETAPA #1 - Avança todas as etapas com next até </strong></mark><mark class="highlight-blue"><strong>INSTALL…</strong></mark></blockquote><figure id="7b4784a3-e5c4-49a8-902c-c89acfd1d286" class="image"><a href="Material%20GIT%20-%20GITHUB%20(instalando%20GIT%20e%20subindo%20pr%207a17e38bc09641a6aea793eee0d837c7/install_git1.png"><img style="width:573px" src="Material%20GIT%20-%20GITHUB%20(instalando%20GIT%20e%20subindo%20pr%207a17e38bc09641a6aea793eee0d837c7/install_git1.png"/></a></figure><blockquote id="c5d16658-1f01-42d4-b51a-e777419bca21" class=""><strong><mark class="highlight-brown">ETAPA #2</mark></strong></blockquote><figure id="69f60f81-2e14-42fc-9ec8-b13bd1920391" class="image"><a href="Material%20GIT%20-%20GITHUB%20(instalando%20GIT%20e%20subindo%20pr%207a17e38bc09641a6aea793eee0d837c7/install_git2.png"><img style="width:570px" src="Material%20GIT%20-%20GITHUB%20(instalando%20GIT%20e%20subindo%20pr%207a17e38bc09641a6aea793eee0d837c7/install_git2.png"/></a></figure><blockquote id="8515d6df-0f52-4c0c-88cc-61bd1dff645a" class=""><strong><mark class="highlight-brown">ETAPA #3 - Caso desejar pode desabilitar View Release Notes</mark></strong></blockquote><figure id="d8e5919c-96fd-4bbd-97b7-2d6f1f2e2cdf" class="image"><a href="Material%20GIT%20-%20GITHUB%20(instalando%20GIT%20e%20subindo%20pr%207a17e38bc09641a6aea793eee0d837c7/install_git3.png"><img style="width:564px" src="Material%20GIT%20-%20GITHUB%20(instalando%20GIT%20e%20subindo%20pr%207a17e38bc09641a6aea793eee0d837c7/install_git3.png"/></a></figure><h2 id="cca321b2-07b1-4493-b8a8-54f975df5c23" class="">Configuração inicial <mark class="highlight-red"><strong>GIT</strong></mark></h2><blockquote id="a64d068f-88dd-4d31-b3fe-7392250ff160" class=""><strong>Caso desejar a documentação para utilização do GIT esta neste site, mesmo assim continuaremos a configuração por aqui…</strong></blockquote><figure id="e5aa8b6c-64d5-404d-ae6d-c691791cb8f9"><a href="https://git-scm.com/book/pt-br/v2/Come%C3%A7ando-Configura%C3%A7%C3%A3o-Inicial-do-Git" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Git - Configuração Inicial do Git</div><div class="bookmark-description">The source of this book is  hosted on GitHub.
+Patches, suggestions and comments are welcome.</div></div><div class="bookmark-href"><img src="https://git-scm.com/favicon.ico" class="icon bookmark-icon"/>https://git-scm.com/book/pt-br/v2/Come%C3%A7ando-Configura%C3%A7%C3%A3o-Inicial-do-Git</div></div></a></figure><blockquote id="588449da-c4d5-47a3-98b7-a75200d19522" class=""><mark class="highlight-teal"><strong>Observação</strong></mark>: Primeiro termos que possuir a conta do GitHub e junto com usuário de utilização, caso não possuir, volta para o PDF (<mark class="highlight-red"><strong>Material GITHUB (Criando conta GitHub &amp; Iniciando Repositório)</strong></mark>) para iniciar criação de sua conta padrão.</blockquote><blockquote id="57f8e306-a817-4e1f-84b4-6b31eb8ee62a" class="">Agora que você tem o Git em seu sistema, você deve fazer algumas coisas para personalizar o ambiente Git. Você fará isso apenas uma vez por computador e o efeito se manterá após atualizações. Você também pode mudá-las em qualquer momento rodando esses comandos novamente.<p id="94b2971e-777e-4b0c-aab0-62402f1986ea" class="">O Git vem com uma ferramenta chamada <code>git config</code> que permite ver e atribuir variáveis de configuração que controlam todos os aspectos de como o Git aparece e opera.</p></blockquote><h2 id="90e8dc6d-7d9f-4855-911e-ab944b28915b" class=""><span style="border-bottom:0.05em solid"><strong>Sua identidade - Carimbo</strong></span></h2><blockquote id="4c96b0c5-836b-4437-9ca1-b0f413a4d675" class=""><strong>A primeira coisa que você deve fazer ao instalar Git é configurar seu </strong><mark class="highlight-purple"><strong>Nome de Usuário</strong></mark><strong> e endereço de </strong><mark class="highlight-blue"><strong>E-Mail</strong></mark><strong>. Isto é importante porque cada commit usa esta informação, e ela é carimbada de forma imutável nos </strong><mark class="highlight-red"><strong>Commits </strong></mark><strong>que você começa a criar:</strong></blockquote><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="7d812970-bb64-43fd-9372-6936a629eff3" class="code"><code class="language-JavaScript">git config --global user.name &quot;Fulano de Tal&quot;
+
+git config --global user.email fulanodetal@exemplo.br</code></pre><blockquote id="d1a976d9-6ce4-4235-ac1b-d5e7dd9cdad2" class="">Esse é um exemplo de configuração para sua conta <mark class="highlight-red"><strong>GIT</strong></mark></blockquote><blockquote id="48e1e0bc-23ce-4ec4-b6fd-4be574cf370a" class="">Caso depois do processo desejar conferir as configuração digite esse comando em seu GIT    <mark class="highlight-red"><strong>git bash, </strong></mark><mark class="highlight-default"><strong>para verificar informação de sua conta.</strong></mark></blockquote><figure id="c1fd98b3-cc8c-4a46-a86e-641ea5bda0dc" class="image"><a href="Material%20GIT%20-%20GITHUB%20(instalando%20GIT%20e%20subindo%20pr%207a17e38bc09641a6aea793eee0d837c7/comando_configListGit.png"><img style="width:1360px" src="Material%20GIT%20-%20GITHUB%20(instalando%20GIT%20e%20subindo%20pr%207a17e38bc09641a6aea793eee0d837c7/comando_configListGit.png"/></a></figure><h2 id="2882843a-3847-4bb1-9426-2dffebbbb6ba" class="">Subindo projeto para o <strong><mark class="highlight-teal">GitHub </mark></strong>usando <mark class="highlight-red"><strong>Git </strong></mark><mark class="highlight-gray"><strong>(Hospedagem)</strong></mark>.</h2><figure id="49f38fc1-9075-427f-8c8e-14228b281c09" class="image"><a href="Material%20GIT%20-%20GITHUB%20(instalando%20GIT%20e%20subindo%20pr%207a17e38bc09641a6aea793eee0d837c7/Git_config.gif"><img style="width:1354px" src="Material%20GIT%20-%20GITHUB%20(instalando%20GIT%20e%20subindo%20pr%207a17e38bc09641a6aea793eee0d837c7/Git_config.gif"/></a></figure><figure id="e55c751c-b471-4774-b0fa-5ba966de1cab" class="image"><a href="Material%20GIT%20-%20GITHUB%20(instalando%20GIT%20e%20subindo%20pr%207a17e38bc09641a6aea793eee0d837c7/repositorio_saveGit.png"><img style="width:1360px" src="Material%20GIT%20-%20GITHUB%20(instalando%20GIT%20e%20subindo%20pr%207a17e38bc09641a6aea793eee0d837c7/repositorio_saveGit.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="4cedbeac-b129-45ee-b238-23e8d76f2a45" class="code"><code class="language-JavaScript">git init //-&gt; Criar novo repositorio
+git add * //-&gt; Adicionar o coteúdo dentro do repositorio GIT
+git remote add origin &quot;Nesse campo sem aspas cole o link do repositorio GitHub&quot;
+git branch -m main //-&gt; Adicione um ponteiro para localização de remificação (commints)
+git commint -m &quot;Seu primeiro commint&quot;
+git push -u origin main //-&gt; subindo o projeto para GitHub
+	</code></pre><blockquote id="682964e3-d435-4ccb-93c8-278c4f28ff2a" class="">Copiando o link usaremos para iniciar o <mark class="highlight-orange"><strong>Git</strong></mark> em nosso material e subi-lo para <mark class="highlight-yellow"><strong>GitHub…</strong></mark></blockquote><figure id="b03f67b8-b6f7-4873-a21b-9b54a036cda2" class="image"><a href="Material%20GIT%20-%20GITHUB%20(instalando%20GIT%20e%20subindo%20pr%207a17e38bc09641a6aea793eee0d837c7/Git_subindo.gif"><img style="width:1354px" src="Material%20GIT%20-%20GITHUB%20(instalando%20GIT%20e%20subindo%20pr%207a17e38bc09641a6aea793eee0d837c7/Git_subindo.gif"/></a></figure><blockquote id="851e95d9-a324-40d4-b30c-950c1b316e05" class="">Logo depois de fazer um push sobre o projeto, vai pedir autorização do GitHub aceitando finalizara a hospedagem do projeto. </blockquote><blockquote id="96d4bdb0-d668-4a71-a129-5c291a352897" class="">Atualizando a pagina do repositório ficara seu material no GitHub. </blockquote><h2 id="3a1377b7-26ea-422b-b7a3-17005a76c628" class="">Usando GitHub para hospedar projeto HTML…</h2><blockquote id="62389f5d-1c88-41de-bfe6-ba037a0433c3" class=""><strong>Esse processo pode levar um tempo, sempre mantenha a pagina do site atualizado para finalização da hospedagem.</strong></blockquote><figure id="317260e0-6c2d-496d-9db9-228c5830f1ea" class="image"><a href="Material%20GIT%20-%20GITHUB%20(instalando%20GIT%20e%20subindo%20pr%207a17e38bc09641a6aea793eee0d837c7/Git_hospedado.gif"><img style="width:1354px" src="Material%20GIT%20-%20GITHUB%20(instalando%20GIT%20e%20subindo%20pr%207a17e38bc09641a6aea793eee0d837c7/Git_hospedado.gif"/></a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
