@@ -7,7 +7,7 @@
   <ul>
     <li>HTM</li>
     <li>CSS</li>
-    <li>GITL</li>
+    <li>GIT</li>
     <li>GITHUB</li>
   </ul>
 </header>
