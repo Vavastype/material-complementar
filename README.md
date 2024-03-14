@@ -11,5 +11,5 @@
     <li>GITHUB</li>
   </ul>
 
-<h2 align="center">Projeto Desenvolvido na faculdade da FAP com parceiros de estudo.</br> <a href="https://drive.google.com/drive/folders/1-0brJpoiNGMhyq4oP2ThdLhfMNODZh7e?usp=sharing" target="_black">Material HTML CSS GIT E GITHUB<a/></h2>
+<h2 align="center">Caso desejar o material esta incluso no Drive: </br> <a href="https://drive.google.com/drive/folders/1-0brJpoiNGMhyq4oP2ThdLhfMNODZh7e?usp=sharing" target="_black">Material HTML CSS GIT E GITHUB<a/></h2>
 </header>
