@@ -673,7 +673,9 @@ blockquote {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="b5992f03-74fe-4c56-881d-1b5c7d0f02d0" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/gradients_3.png" style="object-position:center 60%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🌐</span></div><h1 class="page-title">CSS - Aprendendo Estilizar</h1><p class="page-description"></p></header><div class="page-body"><h1 id="3f82013a-efa8-4e56-b2b6-5a315fc6d956" class="">Voltando com unidades de medida vamos aplicar suas utilidades…</h1><h2 id="d2277b59-1fe5-470e-ba47-4def9df0f380" class="">O que são unidade de media absolutas e relativas?</h2><blockquote id="42a8cb85-3927-4815-90ef-8d524000d400" class="">As unidades de medidas absolutas seria valores fixos sobre componentes (Ex: px cm)</blockquote><blockquote id="8ecd6815-3de2-4b8a-9d43-c1d1680dd102" class="">Valores relativos seriam unidades que sé comportam em relação ao visualização do site, sendo maior  ou menor podendo lidar com responsividade do site (Ex: % vw vh ).</blockquote><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="468cd4cf-3ca0-46e6-84fb-9e185b939e0b" class="code"><code class="language-CSS">/*
+</style></head><body><article id="b5992f03-74fe-4c56-881d-1b5c7d0f02d0" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/gradients_3.png" style="object-position:center 60%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🌐</span></div><h1 class="page-title">CSS - Aprendendo Estilizar</h1><p class="page-description"></p></header><div class="page-body"><h1 id="3f82013a-efa8-4e56-b2b6-5a315fc6d956" class="">Voltando com unidades de medida vamos aplicar suas utilidades…</h1><h1 id="567e5960-b226-4051-b528-fe11365d18a8" class="">O que é CSS?</h1><blockquote id="7cd76ed6-2435-4c0e-ab63-230254461803" class="">CSS é chamado de linguagem <mark class="highlight-orange"><strong>Cascading Style Sheet</strong></mark> (<mark class="highlight-gray"><strong>Planilha em estilo cascata</strong></mark>) e <strong>é usado para estilizar elementos escritos em uma linguagem de marcação como HTML</strong>. O CSS separa o conteúdo da representação visual do site. Pense na decoração da sua página.<p id="e741d234-da41-46ad-99dc-586601913679" class="">
+</p><p id="0276ea5d-cb56-4c0c-98a4-148a650f57fc" class=""> <mark class="highlight-orange">Cascata </mark>(en-US) e o conceito intimamente relacionado de <mark class="highlight-orange">especificidade</mark> são mecanismos que controlam qual regra se aplica quando há tal conflito.</p><p id="2d4bec53-21ba-4868-bb2d-7c126a05ba21" class="">
+</p><p id="8fa694cc-29ca-4198-9a9f-a87a0c58a196" class="">Também significativo aqui é o conceito de <mark class="highlight-orange">herança</mark>, o que significa que algumas propriedades CSS por padrão herdam valores definidos no elemento pai do elemento atual e algumas não. </p></blockquote><h2 id="d2277b59-1fe5-470e-ba47-4def9df0f380" class="">O que são unidade de media absolutas e relativas?</h2><blockquote id="42a8cb85-3927-4815-90ef-8d524000d400" class="">As unidades de medidas absolutas seria valores fixos sobre componentes (Ex: px cm)</blockquote><blockquote id="8ecd6815-3de2-4b8a-9d43-c1d1680dd102" class="">Valores relativos seriam unidades que sé comportam em relação ao visualização do site, sendo maior  ou menor podendo lidar com responsividade do site (Ex: % vw vh ).</blockquote><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="468cd4cf-3ca0-46e6-84fb-9e185b939e0b" class="code"><code class="language-CSS">/*
 	Unidade de medida CSS (px, em, rem, vw, vh, vmax, vmin e %)
 
 	&gt;&gt;Unidadede medida absoluta:
@@ -808,4 +810,107 @@ body, head{
     /*linhas              1°   2°    3°    4°                            */
     grid-template-rows: 200px 200px 200px 200px;
 }
-</code></pre><h3 id="794e40a0-90c7-4675-b95a-7093025bfde0" class="">Caso desejar aplicar ou altear fonte em seu HTML usando CSS utiliza Google Fonts.</h3><figure id="f384a297-a87e-4cd2-99f4-7e9c494b17f5"><a href="https://fonts.google.com/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Browse Fonts - Google Fonts</div><div class="bookmark-description">Making the web more beautiful, fast, and open through great typography</div></div><div class="bookmark-href"><img src="https://www.gstatic.com/images/branding/product/2x/google_fonts_96dp.png" class="icon bookmark-icon"/>https://fonts.google.com/</div></div><img src="https://www.gstatic.com/images/icons/material/apps/fonts/1x/catalog/v5/opengraph_color.png" class="bookmark-image"/></a></figure><figure id="3befbbdb-a0a4-45e4-9741-b04d3c23016d" class="image"><a href="CSS%20-%20Aprendendo%20Estilizar%20b5992f0374fe4c56881d1b5c7d0f02d0/fonts_google.gif"><img style="width:1354px" src="CSS%20-%20Aprendendo%20Estilizar%20b5992f0374fe4c56881d1b5c7d0f02d0/fonts_google.gif"/></a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</code></pre><h2 id="4c0e7a81-6700-44a0-8d5e-48d616296b91" class="">Position</h2><blockquote id="398af08c-dc68-4d6f-b532-3e723a04f3d8" class="">A propriedade CSS position define como um elemento é posicionado em um documento. As propriedades superior, direita, inferior e esquerda determinam a localização final dos elementos posicionados.</blockquote><p id="40f75eb6-1e92-4503-8133-833e0c9508e4" class="">
+</p><blockquote id="30aaa6e1-6895-45d9-b367-5eafe0e385cb" class="">Position - Relative:</blockquote><blockquote id="48843559-910d-47f1-aef0-1464af7ca44c" class="">Position relative serve para posicionar o elemento da página de acordo com suas definições, estabelecendo que ele aceita as propriedades top, bottom, left e right.</blockquote><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f2edb58e-30ef-4ed8-8bf9-353c453d3958" class="code"><code class="language-C++">.conatiner{
+	position: relative;
+  background-color: lemonchiffon;
+  top:100;
+  left:250;
+  height: 800px;
+  width: 800px;
+}
+.box-one{
+	position: absolute;
+  top: 100px;
+  left: 100px;
+  height: 500px;
+  width: 500px;
+  background-color: tomato;
+  }</code></pre><blockquote id="0c252008-79ce-4cf2-8b4a-ff5be0f0f34c" class="">Position Absolute </blockquote><blockquote id="9752b7db-ef2a-4882-a095-0733dfada119" class="">Aplica comportamento de sobrepor os elemento e determinando o elemento pai e seus parentes.</blockquote><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="9e7b06e8-c111-480f-8dde-e85d2e352ed2" class="code"><code class="language-C++">.conatiner{
+	position: relative;
+  background-color: lemonchiffon;
+  top:100;
+  left:250;
+  height: 800px;
+  width: 800px;
+}
+.box-one{
+	position: absolute;
+  top: 100px;
+  left: 100px;
+  height: 500px;
+  width: 500px;
+  background-color: tomato;
+  }</code></pre><blockquote id="6b14f307-e09b-4691-b6a9-0a8bdeb7c04f" class="">Position Sticky</blockquote><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="35463392-c3fb-4097-9221-054e53fe6a4b" class="code"><code class="language-CSS">*{
+    padding: 0;
+    margin: 0;
+}
+.navbar{
+    position: sticky;
+    top: 0; 
+    /* Para que o efeito seja aplicado, define
+       a posição do elemento (top)*/
+    padding: 25px;
+    margin: 5px;
+    background-color: thistle;
+    color: white;
+    font-size: 5vmax;
+}
+
+.box-two{
+    height: 500px;
+    width: 500px;
+    background-color: steelblue;
+}
+p{
+    font-size: 25px;
+    font-weight: bold;
+}</code></pre><blockquote id="4d668df1-b5d0-4621-8cfc-cd739a965555" class="">Position - Static</blockquote><blockquote id="725c325a-4bf8-405c-96f9-3998d324b928" class="">Elemento de definição Static bloqueia efeitos e posicionamento de elementos mantendo como padrão sobre a página.</blockquote><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="c78483aa-bafa-4f4a-ade3-3f325f4adb5b" class="code"><code class="language-CSS">*{
+    padding: 0;
+    margin: 0;
+}
+.navbar{
+    position: static;
+    top: 0; 
+    /* Para que o efeito seja aplicado, define
+       a posição do elemento (top)*/
+    padding: 25px;
+    margin: 5px;
+    background-color: thistle;
+    color: white;
+    font-size: 5vmax;
+}
+
+.box-two{
+    height: 500px;
+    width: 500px;
+    background-color: steelblue;
+}
+p{
+    font-size: 25px;
+    font-weight: bold;
+}</code></pre><blockquote id="0909486b-8d22-4eb8-8eeb-62d915ea35ad" class="">Position - Fixed</blockquote><blockquote id="e01492c9-c15f-4f54-90eb-f385251d4cd1" class=""> Um elemento com posição: fixa; é posicionado em relação à janela de visualização, o que significa que sempre permanece no mesmo lugar, mesmo se a página for rolada:</blockquote><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="a1db484f-a340-4086-8136-97e055653880" class="code"><code class="language-CSS">*{
+    padding: 0;
+    margin: 0;
+}
+.navbar{
+    position: fixed;
+    top: 0; 
+    /* Para que o efeito seja aplicado, define
+       a posição do elemento (top)*/
+    padding: 25px;
+    margin: 5px;
+    background-color: thistle;
+    color: white;
+    font-size: 5vmax;
+}
+
+.box-two{
+    height: 500px;
+    width: 500px;
+    background-color: steelblue;
+}
+p{
+    font-size: 25px;
+    font-weight: bold;
+}</code></pre><h3 id="794e40a0-90c7-4675-b95a-7093025bfde0" class="">Caso desejar aplicar ou altear fonte em seu HTML usando CSS utiliza Google Fonts.</h3><figure id="f384a297-a87e-4cd2-99f4-7e9c494b17f5"><a href="https://fonts.google.com/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Browse Fonts - Google Fonts</div><div class="bookmark-description">Making the web more beautiful, fast, and open through great typography</div></div><div class="bookmark-href"><img src="https://www.gstatic.com/images/branding/product/2x/google_fonts_96dp.png" class="icon bookmark-icon"/>https://fonts.google.com/</div></div><img src="https://www.gstatic.com/images/icons/material/apps/fonts/1x/catalog/v5/opengraph_color.png" class="bookmark-image"/></a></figure><figure id="3befbbdb-a0a4-45e4-9741-b04d3c23016d" class="image"><a href="CSS%20-%20Aprendendo%20Estilizar%20b5992f0374fe4c56881d1b5c7d0f02d0/fonts_google.gif"><img style="width:708px" src="CSS%20-%20Aprendendo%20Estilizar%20b5992f0374fe4c56881d1b5c7d0f02d0/fonts_google.gif"/></a></figure><hr id="9da7a8d3-a810-45d4-b399-a0c075b6014c"/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
